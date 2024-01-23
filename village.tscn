@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc2h5wr4kyp1m"]
+
+[ext_resource type="Script" path="res://village.gd" id="1_070y6"]
+[ext_resource type="Texture2D" uid="uid://d0jebbubrag8l" path="res://building.png" id="1_fg5et"]
+[ext_resource type="Texture2D" uid="uid://ba6y5b61fbftj" path="res://candidate.png" id="3_lvrqm"]
+[ext_resource type="Texture2D" uid="uid://c0viu6545tx3u" path="res://blocker.png" id="4_4p37p"]
+[ext_resource type="Script" path="res://camera.gd" id="5_8dlsr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pd65"]
+resource_name = "building"
+texture = ExtResource("1_fg5et")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/left_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/left_side = 0
+1:1/0/terrains_peering_bit/top_side = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_side = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/right_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/terrains_peering_bit/right_side = 0
+1:2/0/terrains_peering_bit/left_side = 0
+1:2/0/terrains_peering_bit/top_side = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fb3tu"]
+texture = ExtResource("3_lvrqm")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxjfd"]
+texture = ExtResource("4_4p37p")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5p5ua"]
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.623529, 0.168627, 0.494118, 1)
+sources/1 = SubResource("TileSetAtlasSource_2pd65")
+sources/2 = SubResource("TileSetAtlasSource_fb3tu")
+sources/3 = SubResource("TileSetAtlasSource_fxjfd")
+
+[node name="Village" type="Node2D"]
+script = ExtResource("1_070y6")
+
+[node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
+tile_set = SubResource("TileSet_5p5ua")
+format = 2
+layer_0/tile_data = PackedInt32Array(589837, 2, 0, 655373, 2, 0, 655374, 2, 0, 589838, 2, 0, 524301, 2, 0, 524302, 2, 0, 589839, 2, 0, 655375, 2, 0, 720910, 2, 0, 720909, 2, 0, 655372, 2, 0, 589836, 2, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_8dlsr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AddBuildingButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 124.0
+offset_bottom = 31.0
+text = "ADD BUILDING"
